@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import {Auth} from "../components/auth"
-import {collection, getDocs, addDoc, deleteDoc, doc, updateDoc} from "firebase/firestore";
+import { useState } from "react";
+import {collection, addDoc} from "firebase/firestore";
 import {db} from "../config/firebase-config"
 
 function CreateAccount() {
@@ -24,13 +23,17 @@ function CreateAccount() {
 
   return (
       <div className="App">
-        <h1>Recycle App</h1>
+        <h1>Recyclin App</h1>
         <input placeholder = "Email" onChange={(e) => setEmail(e.target.value)}/>
             <input placeholder = "password" 
             type = "password"
             onChange={(e) => setPassword(e.target.value)}/>
             <input placeholder = "Name" onChange={(e) => setName(e.target.value)}/>
             <button onClick={onAddUser}>Create Account</button>
+        <p>
+        <a href = "/admin"><button>Admin Functions</button></a>
+        <a href = "/Bins"><button>View Bins</button></a>
+        </p>
         <a href = "/"><button>Home</button></a>
       </div>
     );

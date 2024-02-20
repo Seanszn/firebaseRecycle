@@ -78,14 +78,13 @@ function BinManage() {
               <h1 style = {{color: Bin.Full ? "red" : "black" }}>{Bin.Name}</h1>
               <p>{Bin.Location}</p>
               <p>{Bin.Hours}</p>
-              <button onClick={() => deleteBin(Bin.id)}>delete bin</button>
+              <button onClick={() => deleteBin(Bin.id)}>Delete bin</button>
               <button onClick={() => fullBin(Bin.id)}>Fill bin</button>
               <button onClick={() => emptyBin(Bin.id)}>Empty bin</button>
             </div>
-          
           ))}
         </div>
-        <p><a href = "/"><button>Log-In</button></a></p>
+        <p><a href = "/"><button>Home</button></a></p>
       </div>
     );
 }

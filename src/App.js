@@ -21,6 +21,8 @@ import Deposit from './pages/deposit';
 
 import CreateAccount from './pages/createAccount';
 
+import OldAuth from './pages/oldAuth';
+
 function App() {
   return (
       <>
@@ -57,6 +59,10 @@ function App() {
                 <Route
                 path = "/createAccount"
                 element = {<CreateAccount/>} 
+                />
+                <Route
+                path = "/oldAuth"
+                element = {<OldAuth/>} 
                 />
                   <Route
                       path="*"

@@ -54,7 +54,7 @@ function UserManage() {
         </div>
         <p>
         <a href = "/admin"><button>Admin Functions</button></a>
-        <a href = "/"><button>Log-in Page</button></a>
+        <a href = "/"><button>Home</button></a>
         </p>
       </div>
     );

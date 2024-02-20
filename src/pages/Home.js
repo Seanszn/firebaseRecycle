@@ -4,10 +4,8 @@ function Home() {
     return (
       <div className="App">
         <h1>Recycle App</h1>
-        <Auth></Auth>
-        <a href = "/createAccount"><button>Create Account</button></a>
-        <a href = "/Bins"><button>View Bins</button></a>
-        <p><a href = "/admin"><button>Admin Functions</button></a></p>
+        <a href = "/createAccount"><button>New Account System</button></a>
+        <a href = "oldAuth"><button>Old Account System</button></a>
       </div>
     );
   }
