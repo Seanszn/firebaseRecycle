@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import {collection, getDocs, addDoc, deleteDoc} from "firebase/firestore";
+import {collection, getDocs, addDoc, deleteDoc, doc, updateDoc} from "firebase/firestore";
 import {db} from "../config/firebase-config"
 
 function BinManage() {
-
+  //sets up function and collection to view list of bins
+  const binRef = collection(db, "Bins")
   const [binList, setBinList] = useState([]);
+  //sets up functions to create new bins
   const [newBinName,setNewBinName] = useState("")
   const [newBinLocation,setNewBinLocation] = useState("")
   const [newBinHours,setNewBinHours] = useState("")
   const [newBinStatus, setNewBinStatus] = useState(false)
 
-  const binRef = collection(db, "Bins")
+  
 
   useEffect(() => {
     const getBinList = async () =>{
@@ -28,6 +30,7 @@ function BinManage() {
 
     getBinList();
   }, [])
+  
   const onAddBin = async () => {
     try{
     await addDoc(binRef, {Name: newBinName,
@@ -40,9 +43,20 @@ function BinManage() {
   } 
 
   const deleteBin = async (id) => {
-    const binDoc = (db, "Bins", id)
-    await deleteDoc(binDoc)
+    const binDoc = doc(db, "Bins", id);
+    await deleteDoc(binDoc);
+  };
+
+  const fullBin = async (id) => {
+    const binDoc = doc(db,"Bins",id)
+    await updateDoc(binDoc, {Full: true})
   }
+
+  const emptyBin = async (id) => {
+    const binDoc = doc(db,"Bins",id)
+    await updateDoc(binDoc, {Full: false})
+  }
+
 
     return (
       <div className="App">
@@ -57,17 +71,21 @@ function BinManage() {
             <button onClick={onAddBin}>Add Bin</button>
         </div>
         <h2>Bins List:</h2>
+        <p>note: bins in red are full.</p>
         <div> 
           {binList.map((Bin) => (
             <div>
-              <h1>{Bin.Name}</h1>
+              <h1 style = {{color: Bin.Full ? "red" : "black" }}>{Bin.Name}</h1>
               <p>{Bin.Location}</p>
               <p>{Bin.Hours}</p>
               <button onClick={() => deleteBin(Bin.id)}>delete bin</button>
+              <button onClick={() => fullBin(Bin.id)}>Fill bin</button>
+              <button onClick={() => emptyBin(Bin.id)}>Empty bin</button>
             </div>
           
           ))}
         </div>
+        <p><a href = "/"><button>Log-In</button></a></p>
       </div>
     );
 }

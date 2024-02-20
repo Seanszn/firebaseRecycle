@@ -9,13 +9,17 @@ import {
 
 import Home from "./pages/Home";
 
-import Bins from "./pages/About";
+import Bins from "./pages/bins";
 
 import Admin from "./pages/admin";
 
 import BinManage from './pages/binManage';
 
 import UserManage from './pages/userManage';
+
+import Deposit from './pages/deposit';
+
+import CreateAccount from './pages/createAccount';
 
 function App() {
   return (
@@ -46,6 +50,14 @@ function App() {
                   path = "/userManage"
                   element = {<UserManage/>}
                   />
+                <Route
+                path = "/deposit"
+                element = {<Deposit/>} 
+                />
+                <Route
+                path = "/createAccount"
+                element = {<CreateAccount/>} 
+                />
                   <Route
                       path="*"
                       element={<Navigate to="/" />}

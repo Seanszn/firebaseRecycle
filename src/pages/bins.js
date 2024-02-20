@@ -3,10 +3,10 @@ import {collection, getDocs} from "firebase/firestore";
 import {db} from "../config/firebase-config"
 
 function Bins() {
+  //sets up function and collection to create a list of bins
   const [binList, setBinList] = useState([]);
-
   const binsCollection = collection(db, "Bins")
-
+  //creates the bins list that is used in the html
   useEffect(() => {
     const getBinList = async () =>{
       try{
@@ -26,11 +26,13 @@ function Bins() {
     return (
       <div className="App">
         <h1>Bins</h1>
-        <button> Make Deposit</button>
+        <a href = "/deposit"><button> Make Deposit</button></a>
         <div> 
+        <p>note: bins in red are full.</p>
           {binList.map((Bin) => (
             <div>
-              <h1>{Bin.Name}</h1>
+              <h1 style = {{color: Bin.Full ? "red" : "black" }}>
+                {Bin.Name}</h1>
               <p>{Bin.Location}</p>
               <p>{Bin.Hours}</p>
             </div>
