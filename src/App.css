@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -37,4 +37,59 @@ body {background-color: #9fd192;}
   to {
     transform: rotate(360deg);
   }
+}*/
+
+body {
+
+  background-color: #9fd192;
+
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+
+  padding: 0;
+
 }
+
+
+
+.App-header {
+
+  background-color: #282c34;
+
+  color: white;
+
+  padding: 20px;
+
+  text-align: center;
+
+}
+
+
+.App-logo {
+
+  height: 200px;
+
+  width: auto;
+
+  animation: App-logo-spin infinite 20s linear;
+
+}
+
+
+
+.App-link {
+
+  color: #61dafb;
+
+  text-decoration: none;
+
+}
+
+
+.App-link:hover {
+
+  text-decoration: underline;
+
+}
+

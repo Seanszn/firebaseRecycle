@@ -23,7 +23,7 @@ function CreateAccount() {
 
   return (
       <div className="App">
-        <h1>Recyclin App</h1>
+        <h1>Recycling App</h1>
         <input placeholder = "Email" onChange={(e) => setEmail(e.target.value)}/>
             <input placeholder = "password" 
             type = "password"
