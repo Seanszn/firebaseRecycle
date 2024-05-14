@@ -24,7 +24,7 @@ function UserManage() {
     }
 
     getUsersList();
-  }, [])
+  })
 
   const blockUser = async (id) => {
     const userDoc = doc(db,"Users",id);

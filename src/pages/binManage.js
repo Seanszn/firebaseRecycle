@@ -29,7 +29,7 @@ function BinManage() {
     }
 
     getBinList();
-  }, [])
+  })
   
   const onAddBin = async () => {
     try{
@@ -84,7 +84,10 @@ function BinManage() {
             </div>
           ))}
         </div>
-        <p><a href = "/"><button>Home</button></a></p>
+        <p>
+          <a href = "/admin"><button>Admin Functions</button></a>
+          <a href = "/"><button>Home</button></a>
+          </p>
       </div>
     );
 }
